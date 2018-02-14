@@ -1,6 +1,7 @@
 <title>Admin Page</title>
 <?php
 
+
 if(isset($_POST["submit"])) {
 	//db connection
 	$conn = mysqli_connect("localhost", "root", "", "databaseexam");

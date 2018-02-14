@@ -1,4 +1,5 @@
 <?php
+
 	$conn = mysqli_connect("localhost", "root", "", "databaseexam");
 	$sql = "SELECT * FROM `users`";
 	$result = $conn->query($sql);
