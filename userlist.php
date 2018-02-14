@@ -22,7 +22,7 @@
 			//echo $row["name"];
 			echo "<form action='delete.php' method='POST'>";
 			echo $row["name"];
-			echo"<button type ='submit' name='submit' href='?' value='delete'>delete</button></form>";
+			echo"<button type ='submit' name='submit'>delete</button></form>";
 			echo "<br>";
 		}
 	}else{

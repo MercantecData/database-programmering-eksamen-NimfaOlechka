@@ -1,3 +1,19 @@
+AUTHOR:
+========
+Olga Kozhevnikova (Mercantec: House of Technology) 
+
+
+Contacts:
+=========
+Voice: +45 20302252
+E-mail:nimfaolya@mail.ru
+GitHub: https://MercantecData/database-programmering-eksamen-NimfaOlechka 
+
+
+PS: slette bruger - er ikke implementeret 100%. Jeg har skrevet delete.php til dette - men fejler med at alt fungere korrekt.
+
+
+
 EKSAMEN I DATABASE PROGRAMMERING
 I mappen finder i en række php filer. Indstil som det første jeres XAMPP til at pege på denne mappe. I filen database.sql finder i en database i skal importere for at denne kode virker.
 
