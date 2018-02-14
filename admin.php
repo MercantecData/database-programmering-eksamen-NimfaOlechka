@@ -1,12 +1,21 @@
-<title>Admin Page</title><?php
+<title>Admin Page</title>
+<?php
 
 if(isset($_POST["submit"])) {
-
-	$conn = mysqli_connect("localhost", "root", "", "databaseexam");//
-	$username = $_POST["username"];
-	$password = $_POST["password"];
+	//db connection
+	$conn = mysqli_connect("localhost", "root", "", "databaseexam");
+	//error handling
+	$username=mysqli_real_escape_string($conn,$_POST['username']);
+	$password=mysqli_real_escape_string($conn,$_POST['password']);
 	
-	$sql = "SELECT * FROM `adminusers` WHERE username = '$username' AND password = '$password';";//
+	if(empty($username) || empty($password)){
+		header("Location: admin.php?login=empty");
+		exit();
+	}else{
+		$sql = "SELECT * FROM `adminusers` WHERE username = '$username' AND password = '$password';";
+	}
+	
+	//
 
 	$result = $conn->query($sql);
 
