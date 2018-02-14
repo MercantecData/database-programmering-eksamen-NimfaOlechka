@@ -2,9 +2,10 @@
 session_start();
 $loggedIn = isset($_SESSION['userID']);
 if($loggedIn) {
-	id = $SESSION['userID'];
+	//??
+	$id = $_SESSION['userID'];///
 	$conn = mysqli_connect("localhost", "root", "", "databaseexam");
-	$sql = SELECT id, imageURL FROM images WHERE owner = id;
+	$sql = "SELECT `id`, `imageURL` FROM `images` WHERE owner = '$id';";///SELECT `id`, `imageURL`, `owner` FROM `images` WHERE 1
 	$imageresult = $conn->query($sql);
 }
 ?>
@@ -94,13 +95,16 @@ if($loggedIn) {
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat quis purus ut bibendum. Mauris sit amet lacinia arcu. Vivamus fringilla magna id augue luctus interdum. 
 
 			<?php 
-			if$imageresult) {
+			
+			if($imageresult) { //
 				echo "<h2>Dine Billeder</h2>";
 				while($row = $imageresult->fetch_assoc()) {
-					$url = $row["imageUrl"];
+					$url = $row["imageURL"];
 					echo "<img class = 'myImage' src='$url'>";
 				}
-			} 
+			} else{
+				echo "<img class = 'myImage' src='https://imgix.ranker.com/user_node_img/50047/1000931297/original/star-destroyer-photo-u1?w=650&q=50&fm=jpg&fit=crop&crop=faces'>";
+			}
 			?>
 			<div class="myTextArea"><p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat quis purus ut bibendum. Mauris sit amet lacinia arcu. Vivamus fringilla magna id augue luctus interdum. Aliquam urna dui, efficitur at imperdiet sed, ultricies eu tellus. Pellentesque iaculis sagittis nisi id ultrices. Phasellus pharetra diam ac ex feugiat dapibus eget a diam. Fusce ullamcorper nunc quis massa ornare dapibus. Nunc efficitur nunc ut consectetur condimentum. Maecenas faucibus quis justo nec venenatis. Donec at placerat magna. Donec a lobortis eros. Aliquam erat volutpat. Proin gravida orci ut semper aliquet. Donec vitae purus commodo, accumsan purus sed, congue neque. Nullam egestas, augue sed euismod mollis, leo risus elementum nisi, non venenatis felis justo ac libero.
