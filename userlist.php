@@ -1,7 +1,4 @@
 <?php
-session_start();
-$loggedIn = isset($_SESSION['userID']);
-
 	$conn = mysqli_connect("localhost", "root", "", "databaseexam");
 	$sql = "SELECT * FROM `users`";
 	$result = $conn->query($sql);
@@ -21,14 +18,20 @@ $loggedIn = isset($_SESSION['userID']);
 	<?php 
 	if($result->num_rows > 0){
 		while($row = $result->fetch_assoc()){
+			$_SESSION['userName']=$row['username'];
+			//echo $row["name"];
+			echo "<form action='delete.php' method='POST'>";
 			echo $row["name"];
-			echo "   <a href='?'>delete</a>";
+			echo"<button type ='submit' name='submit' href='?' value='delete'>delete</button></form>";
 			echo "<br>";
 		}
 	}else{
 		echo "No more users left...";
 	}
 	
+	
 	?>
 </body>
+</script>
 </html>
+
