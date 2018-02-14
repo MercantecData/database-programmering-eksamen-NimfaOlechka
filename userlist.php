@@ -1,4 +1,7 @@
 <?php
+session_start();
+$loggedIn = isset($_SESSION['userID']);
+
 	$conn = mysqli_connect("localhost", "root", "", "databaseexam");
 	$sql = "SELECT * FROM `users`";
 	$result = $conn->query($sql);

@@ -127,4 +127,14 @@ $loggedIn = isset($_SESSION['userID']);
 	<a href="admin.php">Admin Login</a>
 
 </body>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("img").on({
+			'click': function(){
+			var imageSrc = $(this).attr('src');
+			$("window....").show($(this).attr('src',imageSrc));//?? reference to new window location
+			}
+		});
+	});
+</script>
 </html>

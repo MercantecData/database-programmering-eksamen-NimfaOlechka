@@ -27,6 +27,7 @@ if(isset($_POST["submit"])) {
 				}elseif($hashedPswCheck = true){
 
 					//Log in the user
+					$_SESSION['userName']=$row['username'];
 					header("Location: userlist.php");			
 					exit();
 				}
