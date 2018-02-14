@@ -95,7 +95,7 @@ if($loggedIn) {
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus feugiat quis purus ut bibendum. Mauris sit amet lacinia arcu. Vivamus fringilla magna id augue luctus interdum. 
 
 			<?php 
-			
+
 			if($imageresult) { //
 				echo "<h2>Dine Billeder</h2>";
 				while($row = $imageresult->fetch_assoc()) {
@@ -103,7 +103,7 @@ if($loggedIn) {
 					echo "<img class = 'myImage' src='$url'>";
 				}
 			} else{
-				echo "<img class = 'myImage' src='https://imgix.ranker.com/user_node_img/50047/1000931297/original/star-destroyer-photo-u1?w=650&q=50&fm=jpg&fit=crop&crop=faces'>";
+				echo "<img class = 'myImage' src='http://localhost/006.jpg'>";
 			}
 			?>
 			<div class="myTextArea"><p>

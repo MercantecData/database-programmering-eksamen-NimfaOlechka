@@ -12,19 +12,28 @@ if(isset($_POST["submit"])) {
 		header("Location: admin.php?login=empty");
 		exit();
 	}else{
-		$sql = "SELECT * FROM `adminusers` WHERE username = '$username' AND password = '$password';";
-	}
-	
-	//
+		$sql = "SELECT * FROM `adminusers` WHERE username = '$username';";
+		$result = $conn->query($sql);
+		
+		if($result->num_rows > 0) {
+			if($row=mysqli_fetch_assoc($result)){
 
-	$result = $conn->query($sql);
+				//dehashing password and cheking
+				$hashedPswCheck =password_verify($password,$row['password']);
+				
+				if($hashedPswCheck = false){
+					header('Location:admin.php?login=error');
+					exit();
+				}elseif($hashedPswCheck = true){
 
-	
-	if($result->num_rows > 0) {
-		header("Location: userlist.php");
-		exit;
-	} else {
-		echo "<p style='color:red'>Wrong Username/Password</p>";
+					//Log in the user
+					header("Location: userlist.php");			
+					exit();
+				}
+			}
+		} else {
+			echo "<p style='color:red'>Wrong Username/Password</p>";
+		}
 	}
 }
 ?>
